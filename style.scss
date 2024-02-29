@@ -35,24 +35,22 @@ body {
     }
 }
 
-header {}
+header { display: block; }
 
-.Avatar {
-    display: block;
-    float: left;
-    width: 112px;
-    height: auto;
+.Avatar { 
+    display: block; 
+    width: 112px; 
     margin: 0 1em 1em 0;
-    border-radius: 50%;
-
-    @media (min-width: 380px) {
-        float: left;
-    }
-
-    @media (min-width: 930px) {
-        width: clamp(130px, 14vw, 12rem);
-    }
+    @media (min-width: 380px)
+     { float: left; }
+    @media (min-width: 930px)
+     { width: clamp(130px, 14vw, 12rem); }
 }
+.Avatar img { 
+    display: block; 
+    width: 100%; 
+    height: auto; 
+    border-radius: 50%; }
 
 .TitlulPaginii {
     display: block;
