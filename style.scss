@@ -33,6 +33,7 @@ body {
         margin: 7vw;
         padding: 3rem;
     }
+
 }
 
 header { display: block; }
@@ -45,6 +46,8 @@ header { display: block; }
      { float: left; }
     @media (min-width: 930px)
      { width: clamp(130px, 14vw, 12rem); }
+     { height: clamp(130px, 14vw, 12rem); }
+
 }
 .Avatar img { 
     display: block; 
@@ -87,7 +90,7 @@ main {
     padding: 0;
     border-top: 1px solid #fff;
 
-    @media (min-width: 1100px) {
+    @media (min-width: 1800px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -125,4 +128,5 @@ main {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 400;
 }
