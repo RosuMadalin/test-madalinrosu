@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ovidiu</title>
+    <style>
+        #chatBox {
+          border: 1px solid #ccc;
+          padding: 10px;
+          height: 200px;
+          overflow-y: scroll;
+        }
+      </style>
+</head>
+<!-- <h1>Result</h1>
+<p id="res"></p>
+
+<script>
+    var data = window.location.search;
+    var params = new URLSearchParams(data);
+    console.log(params);
+    // console.log(params.get("name")); sau 
+    var name = params.get("name");
+    // console.log(params.get("mobile")); sau
+    var mobile = params.get("mobile");
+
+    var getData = "Name : "+name+"<br>";
+        getData += "Mobile : "+mobile+"<br>";
+    document.getElementById("res").innerHTML = getData;
+</script>
+-->
+
+
+<body>
+    <h1>Page 2</h1>
+    <div id="chatBox"></div>
+    <input type="text" id="messageInput" placeholder="Enter your message here">
+    <button onclick="sendMessage()">Send Message</button>
+  
+    <script>
+      function sendMessage() {
+        const message = document.getElementById('messageInput').value;
+        if (message) {
+          const chatHistory = JSON.parse(localStorage.getItem('chatHistory') || '[]');
+          chatHistory.push({ sender: 'Page 2', message: message, timestamp: new Date().getTime() });
+          localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+          document.getElementById('messageInput').value = '';
+          displayMessages();
+        }
+      }
+  
+      function displayMessages() {
+        const chatBox = document.getElementById('chatBox');
+        chatBox.innerHTML = '';
+        const chatHistory = JSON.parse(localStorage.getItem('chatHistory') || '[]');
+        chatHistory.forEach(chat => {
+          const messageElement = document.createElement('p');
+          messageElement.textContent = `[${new Date(chat.timestamp).toLocaleTimeString()}] ${chat.sender}: ${chat.message}`;
+          chatBox.appendChild(messageElement);
+        });
+        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+      }
+  
+      window.addEventListener('storage', (event) => {
+        if (event.key === 'chatHistory') {
+          displayMessages();
+        }
+      });
+  
+      // Initial display of messages when the page loads
+      displayMessages();
+    </script>
+
+</body>
+</html>
